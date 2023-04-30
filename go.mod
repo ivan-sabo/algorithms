@@ -1,3 +1,3 @@
-module github.com/ivan-sabo/golang/algorithms
+module github.com/ivan-sabo/algorithms
 
 go 1.20
