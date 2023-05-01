@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // @todo: use generics and interfaces
 func IsSorted(a []int) bool {
@@ -22,12 +25,26 @@ func Less(a, b int) bool {
 	return a < b
 }
 
-func Show(a []int) {
+func ToString(a []int) string {
+	b := strings.Builder{}
 	for i, v := range a {
 		if i == len(a)-1 {
-			fmt.Printf("%d\n", v)
+			b.WriteString(fmt.Sprint(v))
 			break
 		}
-		fmt.Printf("%d ", v)
+		b.WriteString(fmt.Sprint(v) + " ")
 	}
+
+	return b.String()
+}
+
+// @todo: use generics and interfaces
+func Exchange(s []int, a, b int) error {
+	if a >= len(s) || b >= len(s) {
+		return ErrorExchangeIndexOutOfBound
+	}
+
+	s[a], s[b] = s[b], s[a]
+
+	return nil
 }
