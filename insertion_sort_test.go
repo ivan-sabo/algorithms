@@ -4,17 +4,24 @@ import "testing"
 
 func TestInsertionSort(t *testing.T) {
 	s := []int{5, 2, 4, 1, 3}
-	expected := []int{1, 2, 3, 4, 5}
 
 	is := InsertionSort{}
-	r, err := is.Sort(s)
+	sorted, err := is.Sort(s)
 	if err != nil {
 		t.Errorf("unexpected error: %e", err)
 	}
 
+	expected := []int{1, 2, 3, 4, 5}
+	if len(sorted) != len(expected) {
+		t.Fatalf("resulting array size(%d) is different from expected size(%d)",
+			len(sorted),
+			len(expected),
+		)
+	}
+
 	for i := 0; i < len(s); i++ {
-		if expected[i] != r[i] {
-			t.Errorf("expected: %d, got: %d", expected[i], r[i])
+		if expected[i] != sorted[i] {
+			t.Errorf("expected: %d, got: %d", expected[i], sorted[i])
 		}
 	}
 }
