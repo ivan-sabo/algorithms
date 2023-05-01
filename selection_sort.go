@@ -1,3 +1,13 @@
+// SelectionSort implementation.
+//
+// Uses ~N^2/2 compares and n exchanges to sort an array of length n.
+//
+// It takes about as long to run selection sort for an array that is already in order or for an
+// array with all keys exaual as it does for a randomly-ordered array.
+//
+// Data movement is minimal. The number of exchanges is a linear function of the array length.
+//
+// Running time is N^2 for randomly ordered arrays.
 package main
 
 import "log"

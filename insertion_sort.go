@@ -1,3 +1,11 @@
+// InsertionSort implementation.
+//
+// Uses ~N^2/4 compares and ~N^2/exchanges to sort a randomly ordered array of
+// length n, on average.
+//
+// Best method for partially sorted arrays (low number of inversions) and tiny arrays.
+//
+// Running time is N^2 for randomly ordered arrays.
 package main
 
 type InsertionSort struct {
