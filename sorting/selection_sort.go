@@ -8,9 +8,13 @@
 // Data movement is minimal. The number of exchanges is a linear function of the array length.
 //
 // Running time is N^2 for randomly ordered arrays.
-package main
+package sorting
 
-import "log"
+import (
+	"log"
+
+	"github.com/ivan-sabo/algorithms/common"
+)
 
 // @todo: use generics and interfaces
 type SelectionSort struct {
@@ -26,12 +30,12 @@ func (ss *SelectionSort) Sort(a []int) ([]int, error) {
 	for i := 0; i < n; i++ {
 		min := i
 		for j := i + 1; j < n; j++ {
-			if Less(ss.s[j], ss.s[min]) {
+			if common.Less(ss.s[j], ss.s[min]) {
 				min = j
 			}
 		}
 
-		err = Exchange(ss.s, i, min)
+		err = common.Exchange(ss.s, i, min)
 		if err != nil {
 			log.Fatalf("an error occured: %s, i=%d, min=%d, len(%d)\n", err, i, min, n)
 		}

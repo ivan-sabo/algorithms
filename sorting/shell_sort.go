@@ -5,7 +5,9 @@
 //
 // Much faster than InsertionSort and SelectionSort.
 // It uses no extra space.
-package main
+package sorting
+
+import "github.com/ivan-sabo/algorithms/common"
 
 type ShellSort struct {
 	s []int
@@ -23,8 +25,8 @@ func (ss *ShellSort) Sort(s []int) ([]int, error) {
 
 	for h >= 1 {
 		for i := h; i < n; i++ {
-			for j := i; (j >= h) && Less(ss.s[j], ss.s[j-h]); j -= h {
-				Exchange(ss.s, j, j-h)
+			for j := i; (j >= h) && common.Less(ss.s[j], ss.s[j-h]); j -= h {
+				common.Exchange(ss.s, j, j-h)
 			}
 		}
 		h /= 3

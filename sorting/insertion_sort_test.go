@@ -1,6 +1,8 @@
-package main
+package sorting
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestInsertionSort(t *testing.T) {
 	s := []int{5, 2, 4, 1, 3}

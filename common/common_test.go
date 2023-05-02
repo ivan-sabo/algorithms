@@ -1,6 +1,8 @@
-package main
+package common
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestLess(t *testing.T) {
 	a, b := 1, 2
@@ -12,18 +14,16 @@ func TestLess(t *testing.T) {
 
 func TestExchange(t *testing.T) {
 	a := []int{1, 2}
-	ss := SelectionSort{
-		s: a,
-	}
+
 	err := Exchange(a, 0, 1)
 	if err != nil {
 		t.Errorf("unexpected error: %e\n", err)
 	}
 
 	expected := []int{2, 1}
-	for i := 0; i < len(ss.s); i++ {
-		if ss.s[i] != expected[i] {
-			t.Errorf("expected: %d, got: %d\n", expected[i], ss.s[i])
+	for i := 0; i < len(a); i++ {
+		if a[i] != expected[i] {
+			t.Errorf("expected: %d, got: %d\n", expected[i], a[i])
 		}
 	}
 }

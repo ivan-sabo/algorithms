@@ -1,6 +1,7 @@
-package main
+package common
 
 import (
+	"errors"
 	"fmt"
 	"strings"
 )
@@ -48,3 +49,7 @@ func Exchange(s []int, a, b int) error {
 
 	return nil
 }
+
+var (
+	ErrorIndexOutOfBound = errors.New("referenced index out of bound")
+)

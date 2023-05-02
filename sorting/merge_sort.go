@@ -5,9 +5,11 @@
 //
 // Drawback is that it requires extra space proportional to N for the auxiliary array for
 // merging.
-package main
+package sorting
 
-import "fmt"
+import (
+	"github.com/ivan-sabo/algorithms/common"
+)
 
 type MergeSort struct {
 	s   []int
@@ -21,8 +23,6 @@ func (ms *MergeSort) Sort(s []int) ([]int, error) {
 	copy(ms.aux, s)
 
 	ms.helperSort(0, len(ms.s)-1)
-
-	fmt.Println(ToString(ms.s))
 
 	return ms.s, nil
 }
@@ -41,7 +41,7 @@ func (ms *MergeSort) helperSort(low, high int) {
 
 func (ms *MergeSort) merge(low, mid, high int) error {
 	if high >= len(ms.s) {
-		return ErrorIndexOutOfBound
+		return common.ErrorIndexOutOfBound
 	}
 
 	for i := low; i <= high; i++ {
@@ -62,7 +62,7 @@ func (ms *MergeSort) merge(low, mid, high int) error {
 			continue
 		}
 
-		if Less(ms.aux[second], ms.aux[first]) {
+		if common.Less(ms.aux[second], ms.aux[first]) {
 			ms.s[i] = ms.aux[second]
 			second++
 			continue

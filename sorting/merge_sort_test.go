@@ -1,6 +1,10 @@
-package main
+package sorting
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/ivan-sabo/algorithms/common"
+)
 
 func TestMergeSort(t *testing.T) {
 	unsorted := []int{5, 4, 1, 3, 2}
@@ -62,7 +66,7 @@ func TestErrorIndexOutOfBound(t *testing.T) {
 	}
 
 	err := ms.merge(0, 2, 7)
-	if err != ErrorIndexOutOfBound {
-		t.Errorf("expected error: %e, got: %e\n", ErrorIndexOutOfBound, err)
+	if err != common.ErrorIndexOutOfBound {
+		t.Errorf("expected error: %e, got: %e\n", common.ErrorIndexOutOfBound, err)
 	}
 }
