@@ -3,5 +3,5 @@ package main
 import "errors"
 
 var (
-	ErrorExchangeIndexOutOfBound = errors.New("referenced index out of bound")
+	ErrorIndexOutOfBound = errors.New("referenced index out of bound")
 )

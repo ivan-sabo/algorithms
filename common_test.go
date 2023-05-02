@@ -32,9 +32,9 @@ func TestExchangeErrorExchangeIndexOutOfBound(t *testing.T) {
 	a := []int{1, 2}
 
 	err := Exchange(a, 0, 3)
-	expected := ErrorExchangeIndexOutOfBound
+	expected := ErrorIndexOutOfBound
 	if err != expected {
-		t.Errorf("expected: %e, got: %e", ErrorExchangeIndexOutOfBound, err)
+		t.Errorf("expected: %e, got: %e", ErrorIndexOutOfBound, err)
 	}
 }
 

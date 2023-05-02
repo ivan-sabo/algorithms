@@ -41,7 +41,7 @@ func ToString(a []int) string {
 // @todo: use generics and interfaces
 func Exchange(s []int, a, b int) error {
 	if a >= len(s) || b >= len(s) {
-		return ErrorExchangeIndexOutOfBound
+		return ErrorIndexOutOfBound
 	}
 
 	s[a], s[b] = s[b], s[a]
