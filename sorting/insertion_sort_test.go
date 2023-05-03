@@ -1,19 +1,20 @@
 package sorting
 
 import (
+	"math/rand"
 	"testing"
+	"time"
 )
 
 func TestInsertionSort(t *testing.T) {
-	s := []int{5, 2, 4, 1, 3}
-
+	s := rand.New(rand.NewSource(time.Now().Unix())).Perm(5)
 	is := InsertionSort{}
 	sorted, err := is.Sort(s)
 	if err != nil {
 		t.Errorf("unexpected error: %e", err)
 	}
 
-	expected := []int{1, 2, 3, 4, 5}
+	expected := []int{0, 1, 2, 3, 4}
 	if len(sorted) != len(expected) {
 		t.Fatalf("resulting array size(%d) is different from expected size(%d)",
 			len(sorted),

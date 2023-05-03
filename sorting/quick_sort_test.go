@@ -6,10 +6,10 @@ import (
 	"time"
 )
 
-func TestMergeSortBottomup(t *testing.T) {
+func TestQuickSort(t *testing.T) {
 	s := rand.New(rand.NewSource(time.Now().Unix())).Perm(5)
 
-	is := MergeSortBottomup{}
+	is := QuickSort{}
 	sorted := is.Sort(s)
 
 	expected := []int{0, 1, 2, 3, 4}

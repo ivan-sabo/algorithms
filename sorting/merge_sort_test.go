@@ -1,13 +1,15 @@
 package sorting
 
 import (
+	"math/rand"
 	"testing"
+	"time"
 
 	"github.com/ivan-sabo/algorithms/common"
 )
 
 func TestMergeSort(t *testing.T) {
-	unsorted := []int{5, 4, 1, 3, 2}
+	unsorted := rand.New(rand.NewSource(time.Now().Unix())).Perm(5)
 
 	ms := MergeSort{}
 	sorted, err := ms.Sort(unsorted)
@@ -15,7 +17,7 @@ func TestMergeSort(t *testing.T) {
 		t.Fatalf("unexpected error: %e", err)
 	}
 
-	expected := []int{1, 2, 3, 4, 5}
+	expected := []int{0, 1, 2, 3, 4}
 	if len(sorted) != len(expected) {
 		t.Fatalf("resulting array size(%d) is different from expected size(%d)",
 			len(sorted),

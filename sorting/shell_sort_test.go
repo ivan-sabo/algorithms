@@ -1,9 +1,13 @@
 package sorting
 
-import "testing"
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
 
 func TestShellSort(t *testing.T) {
-	unsorted := []int{5, 4, 1, 3, 2}
+	unsorted := rand.New(rand.NewSource(time.Now().Unix())).Perm(5)
 
 	ss := ShellSort{}
 	sorted, err := ss.Sort(unsorted)
@@ -12,7 +16,7 @@ func TestShellSort(t *testing.T) {
 		t.Fatalf("unexpected error: %e", err)
 	}
 
-	expected := []int{1, 2, 3, 4, 5}
+	expected := []int{0, 1, 2, 3, 4}
 	if len(sorted) != len(expected) {
 		t.Fatalf("resulting array size(%d) is different from expected size(%d)",
 			len(sorted),
