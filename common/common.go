@@ -3,6 +3,7 @@ package common
 import (
 	"errors"
 	"fmt"
+	"math"
 	"strings"
 )
 
@@ -48,6 +49,10 @@ func Exchange(s []int, a, b int) error {
 	s[a], s[b] = s[b], s[a]
 
 	return nil
+}
+
+func MinInt(a, b int) int {
+	return int(math.Min(float64(a), float64(b)))
 }
 
 var (
