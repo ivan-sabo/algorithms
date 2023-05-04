@@ -16,7 +16,7 @@ func (qs *QuickSort) Sort(s []int) []int {
 }
 
 func (qs *QuickSort) helperSort(low, high int) {
-	if high < low {
+	if high <= low {
 		return
 	}
 	j := qs.partition(low, high)
@@ -30,13 +30,13 @@ func (qs *QuickSort) partition(low, high int) int {
 	for {
 		for {
 			left++
-			if common.Less(qs.s[left], v) || (left == high) {
+			if common.Less(v, qs.s[left]) || (left == high) {
 				break
 			}
 		}
 		for {
 			right--
-			if common.Less(v, qs.s[right]) || (right == low) {
+			if common.Less(qs.s[right], v) || (right == low) {
 				break
 			}
 		}
